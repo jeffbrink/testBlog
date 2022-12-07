@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const articleRouter = require("./routes/articles");
 const Article = require("./models/article");
 const methodOverride = require("method-override");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const app = express();
 let port = process.env.PORT;
@@ -13,14 +16,13 @@ if (port == null || port == "") {
 async function main() {
   try {
     await mongoose.connect(
-      "mongodb+srv://mercury2768:1UDSMuCc2ixEwf6R@cluster0.4pgrxq0.mongodb.net/newDB?retryWrites=true&w=majority",
+      `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.4pgrxq0.mongodb.net/newDB?retryWrites=true&w=majority`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       }
     );
     console.log("database connection successful, Jeff");
-    
   } catch (err) {
     console.log(err);
   }
