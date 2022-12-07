@@ -5,7 +5,7 @@ const Article = require("./models/article");
 const methodOverride = require("method-override");
 
 const app = express();
-const port = process.env.PORT;
+let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
 }
