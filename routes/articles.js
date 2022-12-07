@@ -12,12 +12,6 @@ router.get("/:slug", async (req, res) => {
   res.render("articles/show", { article: article });
 });
 
-router.get("/:slug", async (req, res) => {
-  const article = await Article.findOne({ slug: req.params.slug });
-  if (article == null) res.redirect("/");
-  res.render("articles/show", { article: article });
-});
-
 router.get("/edit/:id", async (req, res) => {
   const article = await Article.findById(req.params.id);
   if (article == null) res.redirect("/");
@@ -56,7 +50,7 @@ function saveArticleAndRedirect(path) {
 
     try {
       article = await article.save();
-      res.redirect("/articles/${article.slug");
+      res.redirect(`/articles/${article.slug}`);
     } catch (err) {
       console.log(err);
       res.render(`articles/${path}`, { article: article });

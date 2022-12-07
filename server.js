@@ -11,13 +11,19 @@ if (port == null || port == "") {
 }
 
 async function main() {
-  await mongoose.connect(
-    "mongodb+srv://mercury2768:1UDSMuCc2ixEwf6R@cluster0.4pgrxq0.mongodb.net/newDB?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  );
+  try {
+    await mongoose.connect(
+      "mongodb+srv://mercury2768:1UDSMuCc2ixEwf6R@cluster0.4pgrxq0.mongodb.net/newDB?retryWrites=true&w=majority",
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
+    console.log("database connection successful, Jeff");
+    
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 main();
