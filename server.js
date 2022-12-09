@@ -16,7 +16,7 @@ if (port == null || port == "") {
 async function main() {
   try {
     await mongoose.connect(
-      `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.4pgrxq0.mongodb.net/newDB?retryWrites=true&w=majority`,
+      `mongodb+srv://mercury2768:1UDSMuCc2ixEwf6R@cluster0.4pgrxq0.mongodb.net/newDB?retryWrites=true&w=majority`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
